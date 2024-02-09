@@ -55,7 +55,11 @@ class MyHomePage extends StatelessWidget {
                 ImageSection(
                     image: 'assets/images/food.png',
                     playImage: 'assets/images/play.png'),
-                StarRating(ratings: '4,5', reviews: '(300 Reviews)')
+                StarRating(ratings: '4,5', reviews: '(300 Reviews)'),
+                ProfileFollow(
+                    profileImage: 'assets/images/profile.png',
+                    username: 'Jackson Ezekiel',
+                    location: 'Sawyer, Jacksonville')
               ],
             )));
   }
@@ -119,7 +123,7 @@ class StarRating extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 10.0),
+      padding: const EdgeInsets.only(top: 15.0),
       child: Row(children: [
         const Icon(
           Icons.star,
@@ -141,6 +145,81 @@ class StarRating extends StatelessWidget {
               color: Colors.grey,
             )),
       ]),
+    );
+  }
+}
+
+class ProfileFollow extends StatelessWidget {
+  const ProfileFollow({
+    super.key,
+    required this.profileImage,
+    required this.username,
+    required this.location,
+  });
+
+  final String profileImage;
+  final String username;
+  final String location;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(top: 15.0),
+      child: Row(
+        children: [
+          Expanded(
+            child: Row(
+              children: [
+                CircleAvatar(
+                  radius: 30.0,
+                  backgroundImage: AssetImage(profileImage),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 8.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(username,
+                          style: const TextStyle(
+                              fontSize: 16.0, fontWeight: FontWeight.bold)),
+                      Row(
+                        children: [
+                          const Icon(Icons.location_on,
+                              size: 16.0, color: Colors.red),
+                          Text(
+                            location,
+                            style: const TextStyle(
+                              fontSize: 14.0,
+                              color: Colors.grey,
+                            ),
+                          )
+                        ],
+                      )
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Row(
+            children: [
+              ElevatedButton(
+                onPressed: () {
+                  // print here
+                },
+                style: ElevatedButton.styleFrom(
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10.0)),
+                  backgroundColor: Colors.red.shade700,
+                  minimumSize: const Size(50.0, 45.0),
+                ),
+                child:
+                    const Text('Follow', style: TextStyle(color: Colors.white)),
+              )
+            ],
+          )
+        ],
+      ),
     );
   }
 }
