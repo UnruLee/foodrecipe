@@ -61,7 +61,8 @@ class MyHomePage extends StatelessWidget {
                   username: 'Jackson Ezekiel',
                   location: 'Sawyer, Jacksonville',
                   followButton: 'Follow',
-                )
+                ),
+                Ingredients(ingredients: 'Ingredients', items: '5 Items')
               ],
             )));
   }
@@ -224,5 +225,39 @@ class ProfileFollow extends StatelessWidget {
         ],
       ),
     );
+  }
+}
+
+class Ingredients extends StatelessWidget {
+  const Ingredients(
+      {super.key, required this.ingredients, required this.items});
+
+  final String ingredients;
+  final String items;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+        padding: const EdgeInsets.only(top: 20.0),
+        child: Column(
+          children: [
+            Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+              Text(
+                ingredients,
+                style: const TextStyle(
+                  fontSize: 18.0,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              Text(
+                items,
+                style: const TextStyle(
+                  fontSize: 16.0,
+                  color: Colors.grey,
+                ),
+              )
+            ]),
+          ],
+        ));
   }
 }
