@@ -55,6 +55,7 @@ class MyHomePage extends StatelessWidget {
                 ImageSection(
                     image: 'assets/images/food.png',
                     playImage: 'assets/images/play.png'),
+                StarRating(ratings: '4,5', reviews: '(300 Reviews)')
               ],
             )));
   }
@@ -105,6 +106,41 @@ class ImageSection extends StatelessWidget {
           height: 50.0,
         )
       ],
+    );
+  }
+}
+
+class StarRating extends StatelessWidget {
+  const StarRating({super.key, required this.ratings, required this.reviews});
+
+  final String ratings;
+  final String reviews;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(top: 10.0),
+      child: Row(children: [
+        const Icon(
+          Icons.star,
+          color: Colors.orangeAccent,
+          size: 14,
+        ),
+        Padding(
+          padding: const EdgeInsets.only(left: 5.0, right: 5.0),
+          child: Text(ratings,
+              style: const TextStyle(
+                fontSize: 14,
+                fontWeight: FontWeight.bold,
+                fontFamily: 'Poppins',
+              )),
+        ),
+        Text(reviews,
+            style: const TextStyle(
+              fontSize: 14,
+              color: Colors.grey,
+            )),
+      ]),
     );
   }
 }
