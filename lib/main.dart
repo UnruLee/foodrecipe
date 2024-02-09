@@ -52,6 +52,9 @@ class MyHomePage extends StatelessWidget {
             child: const Column(
               children: [
                 TextHeader(),
+                ImageSection(
+                  image: 'assets/images/food.png',
+                ),
               ],
             )));
   }
@@ -73,5 +76,29 @@ class TextHeader extends StatelessWidget {
         ),
       ),
     ]);
+  }
+}
+
+class ImageSection extends StatelessWidget {
+  const ImageSection({super.key, required this.image});
+
+  final String image;
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      alignment: Alignment.center,
+      children: [
+        ClipRRect(
+          borderRadius: BorderRadius.circular(10.0),
+          child: Image.asset(
+            image,
+            width: 400.0,
+            height: 200.0,
+            fit: BoxFit.cover,
+          ),
+        ),
+      ],
+    );
   }
 }
