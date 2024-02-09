@@ -57,9 +57,11 @@ class MyHomePage extends StatelessWidget {
                     playImage: 'assets/images/play.png'),
                 StarRating(ratings: '4,5', reviews: '(300 Reviews)'),
                 ProfileFollow(
-                    profileImage: 'assets/images/profile.png',
-                    username: 'Jackson Ezekiel',
-                    location: 'Sawyer, Jacksonville')
+                  profileImage: 'assets/images/profile.png',
+                  username: 'Jackson Ezekiel',
+                  location: 'Sawyer, Jacksonville',
+                  followButton: 'Follow',
+                )
               ],
             )));
   }
@@ -150,16 +152,17 @@ class StarRating extends StatelessWidget {
 }
 
 class ProfileFollow extends StatelessWidget {
-  const ProfileFollow({
-    super.key,
-    required this.profileImage,
-    required this.username,
-    required this.location,
-  });
+  const ProfileFollow(
+      {super.key,
+      required this.profileImage,
+      required this.username,
+      required this.location,
+      required this.followButton});
 
   final String profileImage;
   final String username;
   final String location;
+  final String followButton;
 
   @override
   Widget build(BuildContext context) {
@@ -213,8 +216,8 @@ class ProfileFollow extends StatelessWidget {
                   backgroundColor: Colors.red.shade700,
                   minimumSize: const Size(50.0, 45.0),
                 ),
-                child:
-                    const Text('Follow', style: TextStyle(color: Colors.white)),
+                child: Text(followButton,
+                    style: const TextStyle(color: Colors.white)),
               )
             ],
           )
