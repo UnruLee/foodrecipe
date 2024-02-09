@@ -53,8 +53,8 @@ class MyHomePage extends StatelessWidget {
               children: [
                 TextHeader(),
                 ImageSection(
-                  image: 'assets/images/food.png',
-                ),
+                    image: 'assets/images/food.png',
+                    playImage: 'assets/images/play.png'),
               ],
             )));
   }
@@ -80,9 +80,10 @@ class TextHeader extends StatelessWidget {
 }
 
 class ImageSection extends StatelessWidget {
-  const ImageSection({super.key, required this.image});
+  const ImageSection({super.key, required this.image, required this.playImage});
 
   final String image;
+  final String playImage;
 
   @override
   Widget build(BuildContext context) {
@@ -98,6 +99,11 @@ class ImageSection extends StatelessWidget {
             fit: BoxFit.cover,
           ),
         ),
+        Image.asset(
+          playImage,
+          width: 50.0,
+          height: 50.0,
+        )
       ],
     );
   }
