@@ -62,7 +62,8 @@ class MyHomePage extends StatelessWidget {
                   location: 'Sawyer, Jacksonville',
                   followButton: 'Follow',
                 ),
-                Ingredients(ingredients: 'Ingredients', items: '5 Items')
+                Ingredients(ingredients: 'Ingredients', items: '5 Items'),
+                ItemSection()
               ],
             )));
   }
@@ -259,5 +260,91 @@ class Ingredients extends StatelessWidget {
             ]),
           ],
         ));
+  }
+}
+
+class ItemSection extends StatelessWidget {
+  const ItemSection({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Column(children: [
+      ItemList(
+          itemImage: 'assets/images/spag.png',
+          itemName: 'Bread',
+          itemWeight: '200g'),
+      ItemList(
+          itemImage: 'assets/images/bread.png',
+          itemName: 'Egg',
+          itemWeight: '200g'),
+      ItemList(
+          itemImage: 'assets/images/spag.png',
+          itemName: 'Milk',
+          itemWeight: '200g')
+    ]);
+  }
+}
+
+class ItemList extends StatelessWidget {
+  const ItemList(
+      {super.key,
+      required this.itemImage,
+      required this.itemName,
+      required this.itemWeight});
+
+  final String itemImage;
+  final String itemName;
+  final String itemWeight;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(top: 8.0),
+      child: Container(
+        padding: const EdgeInsets.only(
+            top: 10.0, left: 15.0, bottom: 10.0, right: 10.0),
+        decoration: BoxDecoration(
+            color: const Color.fromARGB(255, 217, 217, 217),
+            borderRadius: BorderRadius.circular(8.0)),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Row(
+              children: [
+                Container(
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(8.0)),
+                  child: Image.asset(
+                    itemImage,
+                    height: 50.0,
+                    width: 50.0,
+                  ),
+                ),
+                const SizedBox(
+                  width: 10.0,
+                ),
+                Text(
+                  itemName,
+                  style: const TextStyle(
+                      fontSize: 16.0,
+                      fontFamily: 'Poppins',
+                      fontWeight: FontWeight.bold),
+                ),
+              ],
+            ),
+            Row(children: [
+              Text(
+                itemWeight,
+                style: const TextStyle(
+                  fontSize: 14.0,
+                  color: Colors.grey,
+                ),
+              )
+            ]),
+          ],
+        ),
+      ),
+    );
   }
 }
