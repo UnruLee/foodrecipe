@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Food Recipe'),
+      home: const MyHomePage(title: ''),
     );
   }
 }
@@ -58,8 +58,8 @@ class MyHomePage extends StatelessWidget {
                 StarRating(ratings: '4,5', reviews: '(300 Reviews)'),
                 ProfileFollow(
                   profileImage: 'assets/images/profile.png',
-                  username: 'Jackson Ezekiel',
-                  location: 'Sawyer, Jacksonville',
+                  username: 'Roberta Anny',
+                  location: 'Bali, Indonesia',
                   followButton: 'Follow',
                 ),
                 Ingredients(ingredients: 'Ingredients', items: '5 Items'),
