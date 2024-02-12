@@ -47,7 +47,8 @@ class MyHomePage extends StatelessWidget {
             )
           ],
         ),
-        body: Container(
+        body: SingleChildScrollView(
+          child: Container(
             margin: const EdgeInsets.only(left: 20.0, right: 20.0),
             child: const Column(
               children: [
@@ -65,7 +66,9 @@ class MyHomePage extends StatelessWidget {
                 Ingredients(ingredients: 'Ingredients', items: '5 Items'),
                 ItemSection()
               ],
-            )));
+            ))
+        )
+        );
   }
 }
 
